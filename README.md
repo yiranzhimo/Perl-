@@ -52,4 +52,35 @@ $Number=<STDIN>;
 $Words=$Word x $Number;
 print "$Words\n"
 ```
+## 第三章习题
 
+> 写一个程序，读入一些字符串(每行一个)，直到文件结尾为止。然后，再以相反顺序输出这个列表。假如输入来自键盘，你需要在 Unix 系统上键入 Control+d 或在 Windows系统上键入 Control+z 来表示输入的结束。
+
+```perl
+#!/usr/bin/perl
+print "请输入字符串：\n";
+$line=<STDIN>;
+$line_reverse=reverse($line);
+print "$line_reverse\n"
+```
+
+
+> 写一个程序，读入一些数字(每行一个)，直到文件结尾为止。然后，根据毎一个数字输出如下名单中相应的人名(请将这份名单写到程序里，也就是说，你的程序代码里应该出现这份名单)。比方说，如果输入的数字是1、2、4和2，那么输出的人名将会是 fred、betty、dino和 betty:
+fred betty barney dino wilma pebbles bamm-bamm
+
+```perl
+#!/usr/bin/perl
+@list=("fred", "betty", "barney", "dino", "wilma", "pebbles", "bamm-bamm");
+print("请输入数字：\n");
+$num=<STDIN>;
+print "@list[$num-1]\n"
+```
+
+> 写一个程序，读入一些字符串(每行一个)，直到文件结尾为止。然后，请按照 ASCIIA码顺序输出所有字符串。换句话说，假如你键入的是 fred、barney、wilma、betty，输出应该显示 barney betty fred wilma 所有的字符串可以成一行输出吗? 或者分开在不同行输出?你能分让程序以这两种方式输出吗?
+
+```perl
+#!/usr/bin/perl
+@list=<STDIN>;
+@sorted=sort @list;
+print "@sorted\n";
+```
